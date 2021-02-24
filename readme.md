@@ -1,4 +1,28 @@
-**How To Run**
+## How To Run
+
+```python 
+>>> python VOC2VOTT.py --help
+```
+```
+usage: VOC2VOTT.py [-h] --pascal_voc_dir PASCAL_VOC_DIR --vott_file VOTT_FILE --out_dir OUT_DIR
+
+        Converts Pascal VOC datasets into VoTT json datasets.
+        This script is for editing annotations after they have been exported, which VoTT does not support natively.
+
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+required arguments:
+  --pascal_voc_dir PASCAL_VOC_DIR
+                        Path to the directory exported by VoTT
+  --vott_file VOTT_FILE
+                        Path to .vott project file to convert to
+  --out_dir OUT_DIR     Path to output VoTT project and annotations at
+```
+
+### Everything below has not been updated since I redid the CLI
+#### The general idea is correct but some parts might be incorrect
 
 <h5>Make sure your pascal voc data is separated into two folders, annotations [.xml] and images [.jpg, .png]</h3>
 <img src="assets/a_i_images.PNG">

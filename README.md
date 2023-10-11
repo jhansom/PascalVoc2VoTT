@@ -1,12 +1,12 @@
 ## Prerequisites
-```
->>> pip install tqdm
+```shell
+pip install tqdm
 ```
 
 ## Usage
 
-```
->>> python VOC2VoTT.py --help
+```shell
+python VOC2VoTT.py --help
 ```
 ```
 usage: VOC2VoTT.py [-h] [--in_path IN_PATH] [--out_path OUT_PATH] --name NAME

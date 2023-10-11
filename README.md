@@ -1,3 +1,8 @@
+## Prerequisites
+```
+>>> pip install tqdm
+```
+
 ## Usage
 
 ```

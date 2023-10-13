@@ -10,6 +10,7 @@ import sys
 import json
 import argparse
 import xml.etree.ElementTree as eT
+from pathlib import Path
 from uuid import uuid1
 from tqdm import tqdm
 
@@ -42,6 +43,8 @@ class VOC2VoTT:
             print(f"Your input dataset should be separated into 'annotations' and 'images' subfolders.",
                   file=sys.stderr)
             sys.exit(1)
+
+        Path(f'{out_path}').mkdir(parents=True, exist_ok=True)
 
         self.label_map = self._create_path(in_path, 'pascal_label_map.pbtxt')
         self.tags_list = self._get_tags(self.label_map)
@@ -305,8 +308,8 @@ def main():
     print()
 
     voc2vott = VOC2VoTT(
-        in_path=args.in_path,
-        out_path=args.out_path,
+        in_path=os.path.abspath(args.in_path),
+        out_path=os.path.abspath(args.out_path),
         name=args.name
     )
     voc2vott.convert()

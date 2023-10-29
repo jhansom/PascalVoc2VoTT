@@ -187,7 +187,7 @@ class VOC2VoTT:
         results['asset']['type'] = 1
         results['regions'] = []
         for object_ in root.findall('object'):
-            temp_region = {'id': str(uuid1()).replace("-", ""), 'type': "RECTANGLE",
+            temp_region = {'id': self._generate_id(hyphen=False), 'type': "RECTANGLE",
                            'tags': [object_.find('name').text]}
             obj_bnd_box = object_.find('bndbox')
             xmin = int(float(obj_bnd_box.find('xmin').text))  # Some exports give variables as floats
@@ -275,14 +275,18 @@ class VOC2VoTT:
         return '#{:02x}{:02x}{:02x}'.format(r, g, b)
 
     @staticmethod
-    def _generate_id():
+    def _generate_id(hyphen=True):
         """
         Generate an ID compatible with the VoTT project file format.
         """
 
-        hyphen_pos = random.randint(1, 8)
-        conn_id = (''.join(random.choices(string.ascii_letters + string.digits, k=hyphen_pos)) + '-' +
-                   ''.join(random.choices(string.ascii_letters + string.digits, k=8 - hyphen_pos)))
+        if hyphen:
+            hyphen_pos = random.randint(1, 8)
+            conn_id = (''.join(random.choices(string.ascii_letters + string.digits, k=hyphen_pos)) + '-' +
+                       ''.join(random.choices(string.ascii_letters + string.digits, k=8 - hyphen_pos)))
+        else:
+            conn_id = ''.join(random.choices(string.ascii_letters + string.digits, k=9))
+
         return conn_id
 
 

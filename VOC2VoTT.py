@@ -32,15 +32,15 @@ class VOC2VoTT:
         """
         # Define paths used by script
         self.in_path = in_path
-        self.annotations_path = self._create_path(in_path, 'annotations')
-        self.images_path = self._create_path(in_path, 'images')
+        self.annotations_path = self._create_path(in_path, 'Annotations')
+        self.images_path = self._create_path(in_path, 'JPEGImages')
 
         if not os.path.exists(self.in_path):
             print(f"Your input folder doesn't exist.", file=sys.stderr)
             sys.exit(1)
 
         if not os.path.exists(self.images_path) or not os.path.exists(self.annotations_path):
-            print(f"Your input dataset should be separated into 'annotations' and 'images' subfolders.",
+            print(f"Your input dataset should be separated into 'Annotations' and 'JPEGImages' subfolders.",
                   file=sys.stderr)
             sys.exit(1)
 

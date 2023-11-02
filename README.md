@@ -27,7 +27,7 @@ The absence of an --in_path or --out_path argument will cause the script to use 
 ## Notes
 ### Input
 #### Pascal VOC folder
-* Must contain two subfolders: **`annotations`** containing the annotations (`.xml` files) and **`images`** containing the images.
+* Must contain two subfolders: **`Annotations`** containing the annotations (`.xml` files) and **`JPEGImages`** containing the images.
 * Must also contain a **`pascal_label_map.pbtxt`** file containing the list of class labels used in the dataset. This file should have the following format:  
 
         item {
